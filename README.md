@@ -1,6 +1,6 @@
 # E-commerce Website API
 
-This is the back-end API for an e-commerce website, providing endpoints for managing users, products, orders, and more. Built with Node.js, Express, and MongoDB, the API handles all necessary CRUD operations efficiently.
+This project aims to build set of RESTful APIs for an e-commerce platform. These APIs will serve as the backend system that enables key functionalities of an e-commerce website, such as managing products, users, orders, payments, and reviews. The APIs will allow clients (such as web or mobile applications) to communicate with the server to perform various actions.
 
 ## Features
 
