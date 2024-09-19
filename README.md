@@ -58,7 +58,7 @@ This project aims to build set of RESTful APIs for an e-commerce platform. These
 5. **API endpoints Documentations:**
 
 ```
-   [API endpoints documentations]: (https://documenter.getpostman.com/view/38120701/2sAXqs72gn)
+   https://documenter.getpostman.com/view/38120701/2sAXqs72gn
 ```
 
 ## API Endpoints
