@@ -53,7 +53,10 @@ This is the back-end API for an e-commerce website, providing endpoints for mana
    npm run start:dev
    ```
 
-   The server will be running on `http://localhost:8000`.
+   The server will be running on `http://localhost:8000`
+
+5. **API endpoints Documentations:**
+   `https://documenter.getpostman.com/view/38120701/2sAXqs72gn`
 
 ## API Endpoints
 
