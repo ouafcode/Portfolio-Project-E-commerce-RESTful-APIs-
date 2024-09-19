@@ -19,7 +19,7 @@ const brandSh = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Add URL to image
+// Add URL to images
 const AddImgURL = (doc) => {
   //return image with url and name
   if (doc.image) {
@@ -27,12 +27,12 @@ const AddImgURL = (doc) => {
     doc.image = imgUrl;
   }
 };
-// add image URL when update , get
+// add images URL when update , get
 brandSh.post("init", (doc) => {
   AddImgURL(doc);
 });
 
-// add image URL when create
+// add images URL when create
 brandSh.post("save", (doc) => {
   AddImgURL(doc);
 });
