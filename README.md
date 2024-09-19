@@ -56,7 +56,8 @@ This project aims to build set of RESTful APIs for an e-commerce platform. These
    The server will be running on `http://localhost:8000`
 
 5. **API endpoints Documentations:**
-   [API endpoints documentations]:`https://documenter.getpostman.com/view/38120701/2sAXqs72gn`
+
+   [API endpoints documentations]: https://documenter.getpostman.com/view/38120701/2sAXqs72gn
 
 ## API Endpoints
 
