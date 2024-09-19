@@ -22,7 +22,7 @@ exports.addAddress = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Remove address from user addresses list
+// @desc    Remove address from user addresseslist
 // @route   DELETE /api/v1/addresses/:addressId
 // @access  Protected/User
 exports.removeAddress = asyncHandler(async (req, res, next) => {
