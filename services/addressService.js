@@ -42,7 +42,7 @@ exports.removeAddress = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Get logged user addresses list
+// @desc    Get logged user addresse list
 // @route   GET /api/v1/addresses
 // @access  Protected/User
 exports.getLoggedUserAddresses = asyncHandler(async (req, res, next) => {
