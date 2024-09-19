@@ -2,7 +2,7 @@ const asyncHandler = require('express-async-handler');
 
 const User = require('../models/userModel');
 
-// @desc    Add address to user addresses list
+// @desc    Add address to user addresseslist
 // @route   POST /api/v1/addresses
 // @access  Protected/User
 exports.addAddress = asyncHandler(async (req, res, next) => {
