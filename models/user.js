@@ -27,9 +27,13 @@ const userSh = new mongoose.Schema(
       required: [true, "password required"],
       minLength: [6, "minimum length 6 in password"],
     },
+    passChangedAt: Date,
+    passResetCode: String,
+    passResetExpired: Date,
+    passResetVerified: Boolean,
     role: {
       type: String,
-      enum: ["user", "admin"],
+      enum: ["user", "admin", "manager"],
       default: "user",
     },
     active: {

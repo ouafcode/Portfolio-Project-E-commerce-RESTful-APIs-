@@ -2,23 +2,25 @@ const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
+const cors = require("cors");
+const compression = require("compression");
 
 dotenv.config({ path: "config.env" });
 const ApiErr = require("./utils/ApiErr");
 const errorHandling = require("./middlware/errorHandling");
 const db = require("./config/db");
 //Routes
-const categoryApi = require("./API/categoryApi");
-const subcategoryApi = require("./API/subcategoryApi");
-const brandApi = require("./API/brandApi");
-const productApi = require("./API/productApi");
-const userApi = require("./API/userApi");
-const authApi = require("./API/authApi");
+const mountApis = require("./API");
 //connect to databse
 db();
 
 // app server
 const app = express();
+
+app.use(cors());
+app.options("*", cors());
+
+app.use(compression());
 
 // Middlewares request
 app.use(express.json());
@@ -30,12 +32,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 //Use Routes(API)
-app.use("/api/v1/categories", categoryApi);
-app.use("/api/v1/subcategories", subcategoryApi);
-app.use("/api/v1/brands", brandApi);
-app.use("/api/v1/products", productApi);
-app.use("/api/v1/users", userApi);
-app.use("/api/v1/auth", authApi);
+mountApis(app);
 
 app.all("*", (req, res, next) => {
   next(new ApiErr(`Can't found the url: ${req.originalUrl}`, 400));

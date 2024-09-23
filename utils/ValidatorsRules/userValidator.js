@@ -120,3 +120,30 @@ exports.delUser_Validator = [
   check("id").isMongoId().withMessage("wrong user id"),
   validate,
 ];
+
+exports.upUserLogged_Validator = [
+  body("name")
+    .optional()
+    .custom((val, { req }) => {
+      req.body.slug = slugify(val);
+      return true;
+    }),
+  check("email")
+    .notEmpty()
+    .withMessage("Email required")
+    .isEmail()
+    .withMessage("Invalid email")
+    .custom((val) =>
+      userMd.findOne({ email: val }).then((user) => {
+        if (user) {
+          return Promise.reject(new Error("E-mail already in user"));
+        }
+      })
+    ),
+  check("phonenumber")
+    .optional()
+    .isMobilePhone("ar-MA")
+    .withMessage("Invalid phone number"),
+
+  validate,
+];
