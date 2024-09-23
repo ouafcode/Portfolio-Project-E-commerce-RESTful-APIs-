@@ -161,7 +161,7 @@ const createOrder = async (session) => {
     user: user._id,
     Items: cart.Items,
     shippingAdress,
-    totalOrderPrice: Price,
+    TotalOrderPrice: Price,
     Paid: true,
     paidAt: Date.now(),
     payementType: "card",
