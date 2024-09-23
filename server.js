@@ -11,6 +11,7 @@ const errorHandling = require("./middlware/errorHandling");
 const db = require("./config/db");
 //Routes
 const mountApis = require("./API");
+const webhookSession = require("./controllers/orderControllers");
 //connect to databse
 db();
 
@@ -21,6 +22,9 @@ app.use(cors());
 app.options("*", cors());
 
 app.use(compression());
+
+// webhook checkout
+app.post("/webhook", express.raw({ type: "application/json" }), webhookSession);
 
 // Middlewares request
 app.use(express.json());
