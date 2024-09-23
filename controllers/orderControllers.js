@@ -5,6 +5,7 @@ const cartMd = require("../models/cart");
 const productMd = require("../models/product");
 const handler = require("./handlers");
 const ApiErr = require("../utils/ApiErr");
+const userMd = require("../models/user");
 
 // @descp  create cash order
 // @route  GET /api/v1/orders/cartId
@@ -148,6 +149,43 @@ exports.createSession = asyncHandler(async (req, res, next) => {
   res.status(200).json({ status: "success", session });
 });
 
+const createOrder = async (session) => {
+  const cartId = session.client_reference_id;
+  const shippingAdress = session.metadata;
+  const Price = session.amount_total / 100;
+
+  const cart = await cartMd.findById(cartId);
+  const user = await userMd.findOne({ email: session.customer_email });
+
+  const order = await orderMd.create({
+    user: user._id,
+    Items: cart.Items,
+    shippingAdress,
+    totalOrderPrice: Price,
+    Paid: true,
+    paidAt: Date.now(),
+    payementType: "card",
+  });
+
+  if (order) {
+    const bulkOption = cart.Items.map((item) => ({
+      updateOne: {
+        filter: { _id: item.product },
+        update: {
+          $inc: { quantity: -item.quantity, soldCounter: +item.quantity },
+        },
+      },
+    }));
+    await productMd.bulkWrite(bulkOption, {});
+
+    // 5) Clear cart depend on cartId
+    await cartMd.findByIdAndDelete(cartId);
+  }
+};
+
+// @descp  webhook run when stripe payment success
+// @route  POST /webhook
+// @access Private
 exports.webhookSession = asyncHandler(async (req, res, next) => {
   const sig = req.headers["stripe-signature"];
 
@@ -164,9 +202,8 @@ exports.webhookSession = asyncHandler(async (req, res, next) => {
   }
   if (event.type === "checkout.session.completed") {
     //  Create order
-    console.log("create order");
-    //createCardOrder(event.data.object);
+    createOrder(event.data.object);
   }
 
-  //res.status(200).json({ received: true });
+  res.status(200).json({ received: true });
 });
