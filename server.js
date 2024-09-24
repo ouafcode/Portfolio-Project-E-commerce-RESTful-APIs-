@@ -50,7 +50,7 @@ const srv = app.listen(PORT, () => {
   console.log(`App running on port ${PORT}`);
 });
 
-//  Customise error Outside Express by Events
+// Customise error Outside Express by Events
 process.on("unhandledRejection", (err) => {
   console.error(`unhandledRejection Error: ${err.name} | ${err.message}`);
   srv.close(() => {
