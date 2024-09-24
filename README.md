@@ -53,13 +53,13 @@ This project aims to build set of RESTful APIs for an e-commerce platform. These
    npm run start:dev
    ```
 
-### on Developement mode will be running on:
-
-```http://localhost:8000
+###### on Developement mode will be running on:
 
 ```
+http://localhost:8000
+```
 
-### on Production mode will be running on :
+###### on Production mode will be running on :
 
 ```
 https://eshop-alx-e9b791fc72fb.herokuapp.com/api/v1/products
@@ -67,9 +67,9 @@ https://eshop-alx-e9b791fc72fb.herokuapp.com/api/v1/products
 
 5. **API endpoints Documentations:**
 
-```
-https://documenter.getpostman.com/view/38120701/2sAXqs72gn
-```
+   ```
+   https://documenter.getpostman.com/view/38120701/2sAXqs72gn
+   ```
 
 ## API Endpoints
 
