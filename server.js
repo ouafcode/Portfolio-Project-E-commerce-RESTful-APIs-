@@ -23,7 +23,7 @@ app.options("*", cors());
 
 app.use(compression());
 
-// webhook checkout
+//webhook checkout
 app.post("/webhook", express.raw({ type: "application/json" }), webhookSession);
 
 // Middlewares request
