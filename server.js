@@ -42,7 +42,7 @@ app.all("*", (req, res, next) => {
   next(new ApiErr(`Can't found the url: ${req.originalUrl}`, 400));
 });
 
-//Error Handling middlware
+// Error Handling middlware
 app.use(errorHandling);
 
 const PORT = process.env.PORT || 8000;
