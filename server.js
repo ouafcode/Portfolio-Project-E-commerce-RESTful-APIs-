@@ -12,7 +12,7 @@ const db = require("./config/db");
 // Routes
 const mountApis = require("./API");
 const { webhookSession } = require("./controllers/orderControllers");
-//connect to databse
+// connect to databse
 db();
 
 // app server
