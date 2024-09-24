@@ -120,6 +120,6 @@ https://eshop-alx-e9b791fc72fb.herokuapp.com/api/v1/products
 - `DELETE /api/v1/cart/:id` - Remove an item from the cart
 - `PUT /api/v1/cart/addcoupon` - Apply coupon to cart
 
-## Future Enhancements
+## Payment Method
 
-- Integration with payment gateways.
+- Integration with payment gateways stripe.
