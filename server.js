@@ -26,7 +26,7 @@ app.use(compression());
 //webhook checkout
 app.post("/webhook", express.raw({ type: "application/json" }), webhookSession);
 
-// Middlewares  request
+// Middlewares request
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "uploadImg")));
 
