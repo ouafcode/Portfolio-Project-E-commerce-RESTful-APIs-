@@ -9,7 +9,7 @@ dotenv.config({ path: "config.env" });
 const ApiErr = require("./utils/ApiErr");
 const errorHandling = require("./middlware/errorHandling");
 const db = require("./config/db");
-//Routes
+// Routes
 const mountApis = require("./API");
 const { webhookSession } = require("./controllers/orderControllers");
 //connect to databse
