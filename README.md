@@ -53,59 +53,72 @@ This project aims to build set of RESTful APIs for an e-commerce platform. These
    npm run start:dev
    ```
 
-   The server will be running on `http://localhost:8000`
+### on Developement mode will be running on:
+
+```http://localhost:8000
+
+```
+
+### on Production mode will be running on :
+
+```
+https://eshop-alx-e9b791fc72fb.herokuapp.com/api/v1/products
+```
 
 5. **API endpoints Documentations:**
 
 ```
-   https://documenter.getpostman.com/view/38120701/2sAXqs72gn
+https://documenter.getpostman.com/view/38120701/2sAXqs72gn
 ```
 
 ## API Endpoints
 
 ### User Routes
 
-- `POST /api/users/signup` - Register a new user
-- `POST /api/users/login` - Login a user and get a token
+- `POST /api/v1/users/signup` - Register a new user
+- `POST /api/v1/users/login` - Login a user and get a token
 
 ### Gategories Routes
 
-- `GET /api/categories` - Get all categories
-- `POST /api/categories` - Create a new categories (admin only)
-- `PUT /api/categories/:id` - Update a categories (admin only)
-- `DELETE /api/categories/:id` - Delete a categories (admin only)
+- `GET /api/v1/categories` - Get all categories
+- `POST /api/v1/categories` - Create a new categories (admin only)
+- `PUT /api/v1/categories/:id` - Update a categories (admin only)
+- `DELETE /api/v1/categories/:id` - Delete a categories (admin only)
 
 ### Subcategories Routes
 
-- `GET /api/subcategories` - Get all subcategories
-- `POST /api/subcategories` - Create a new subcategories (admin only)
-- `PUT /api/subcategories/:id` - Update a subcategories (admin only)
-- `DELETE /api/subcategories/:id` - Delete a subcategories (admin only)
+- `GET /api/v1/subcategories` - Get all subcategories
+- `POST /api/v1/subcategories` - Create a new subcategories (admin only)
+- `PUT /api/v1/subcategories/:id` - Update a subcategories (admin only)
+- `DELETE /api/v1/subcategories/:id` - Delete a subcategories (admin only)
 
 ### brands Routes
 
-- `GET /api/brands` - Get all brands
-- `POST /api/brands` - Create a new brands (admin only)
-- `PUT /api/brands/:id` - Update a brands (admin only)
-- `DELETE /api/brands/:id` - Delete a brands (admin only)
+- `GET /api/v1/brands` - Get all brands
+- `POST /api/v1/brands` - Create a new brands (admin only)
+- `PUT /api/v1/brands/:id` - Update a brands (admin only)
+- `DELETE /api/v1/brands/:id` - Delete a brands (admin only)
 
 ### Product Routes
 
-- `GET /api/products` - Get all products
-- `POST /api/products` - Create a new product (admin only)
-- `PUT /api/products/:id` - Update a product (admin only)
-- `DELETE /api/products/:id` - Delete a product (admin only)
+- `GET /api/v1/products` - Get all products
+- `POST /api/v1/products` - Create a new product (admin only)
+- `PUT /api/v1/products/:id` - Update a product (admin only)
+- `DELETE /api/v1/products/:id` - Delete a product (admin only)
 
 ### Order Routes
 
-- `POST /api/orders` - Create a new order
-- `GET /api/orders/:id` - Get details of a specific order
+- `POST /api/v1/orders/:cartId` - Create a new order
+- `GET /api/v1/orders/:id` - Get details of a specific order
+- `PUT/api/v1/orders/:id` - update Order status
+- `GET /api/v1/orders/checkout/:cartId` - Get checkout session from stripe
 
 ### Cart Routes
 
-- `POST /api/cart` - Add item to the cart
-- `GET /api/cart` - View the cart
-- `DELETE /api/cart/:id` - Remove an item from the cart
+- `POST /api/v1/cart` - Add item to the cart
+- `GET /api/v1/cart` - View the cart
+- `DELETE /api/v1/cart/:id` - Remove an item from the cart
+- `PUT /api/v1/cart/addcoupon` - Apply coupon to cart
 
 ## Future Enhancements
 
