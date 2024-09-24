@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === "development") {
   console.log(`node: ${process.env.NODE_ENV}`);
 }
 
-//Use Routes(API)
+// Use Routes(API)
 mountApis(app);
 
 app.all("*", (req, res, next) => {
